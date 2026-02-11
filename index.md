@@ -3,6 +3,8 @@ layout: home
 title: Musings - Jack Heseltine
 ---
 
+[![heseltime logo](assets/img/heseltime-favicon-32x32.png) Back to heseltime](https://heseltime.github.io)
+
 ## Welcome 
 
 👋 Hey there, fellow gardener! 🧑‍🌾
