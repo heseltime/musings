@@ -3,7 +3,13 @@ layout: home
 title: Musings - Jack Heseltine
 ---
 
-[![heseltime logo](assets/img/heseltime-favicon-32x32.png) Back to heseltime](https://heseltime.github.io)
+<a href="https://heseltime.github.io">
+  <img src="assets/img/heseltime-favicon-32x32.png"
+       alt="heseltime logo"
+       width="16"
+       height="16">
+  Back to heseltime
+</a>
 
 ## Welcome 
 
