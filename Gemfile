@@ -1,20 +1,19 @@
 source "https://rubygems.org"
 
-# Bonsai deps require Jekyll 4.2.x
+# Required version for Bonsai compatibility
 gem "jekyll", "~> 4.2.0"
 
-# Remote theme support
+# Remote theme
 gem "jekyll-remote-theme"
 
-# Bonsai ecosystem plugins
+# --- Bonsai ecosystem plugins ---
 gem "jekyll-data"
 gem "jekyll-id"
 gem "jekyll-wikilinks"
+gem "jekyll-namespaces"
+gem "jekyll-graph"
 
-# Common plugins
+# --- Standard Jekyll plugins ---
 gem "jekyll-feed"
 gem "jekyll-seo-tag"
 gem "jekyll-sitemap"
-
-# Required for `{% jekyll_graph %}`
-gem "jekyll-graph"
