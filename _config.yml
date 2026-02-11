@@ -3,7 +3,6 @@ description: "A jekyll template for semantically inclined digital gardeners."
 url: "https://my-bonsai.com"
 # baseurl: ""
 
-# GitHub Pages: use remote_theme instead of theme
 remote_theme: manunamz/jekyll-bonsai
 
 include:
@@ -31,7 +30,6 @@ collections:
       - tea.md
       - pot-bamboo.md
 
-# frontmatter defaults
 defaults:
   - scope:
       type: "posts"
@@ -54,11 +52,9 @@ defaults:
       layout: "state"
       permalink: "/stat/:path/"
 
-# required for remote_theme on GitHub Pages
 plugins:
   - jekyll-remote-theme
 
-# Google Analytics (ip is anonymized by default)
 ga_tracking: UA-190413040-3
 
 namespaces:
@@ -71,9 +67,9 @@ namespaces:
 bonsai:
   default_theme: "light"
   nav:
-    type: "graph"
-    graph:
-      type: "tree"
+    type: "visited"      # <-- IMPORTANT: avoid graph/nav plugin
+    visited:
+      enabled: true
   home:
     notable:
       enabled: false
