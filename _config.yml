@@ -1,7 +1,7 @@
 title: My Bonsai
 description: "A jekyll template for semantically inclined digital gardeners."
-url: "https://my-bonsai.com"
-# baseurl: ""
+url: "https://heseltime.github.io"
+baseurl: ""  # leave empty; Actions supplies /musings during build
 
 remote_theme: manunamz/jekyll-bonsai
 
