@@ -1,5 +1,5 @@
-title: My Bonsai
-description: "A jekyll template for semantically inclined digital gardeners."
+title: Musings - Jack Heseltine
+description: "Semantics/trees/digital garden, Gödel to Wittgenstein"
 url: "https://heseltime.github.io"
 baseurl: ""  # leave empty; Actions supplies /musings during build
 
