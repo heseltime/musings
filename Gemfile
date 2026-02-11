@@ -1,10 +1,13 @@
 source "https://rubygems.org"
 
-# Bonsai dependencies require Jekyll 4.2.x
+# Bonsai deps require Jekyll 4.2.x
 gem "jekyll", "~> 4.2.0"
 
-# Remote theme support (you’re using remote_theme in _config.yml)
+# Remote theme support
 gem "jekyll-remote-theme"
+
+# Theme/plugin deps
+gem "jekyll-data"
 
 # Common plugins
 gem "jekyll-feed"
