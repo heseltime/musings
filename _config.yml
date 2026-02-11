@@ -54,6 +54,9 @@ defaults:
 
 plugins:
   - jekyll-remote-theme
+  - jekyll-data
+  - jekyll-id
+  - jekyll-wikilinks
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap

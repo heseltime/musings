@@ -6,13 +6,15 @@ gem "jekyll", "~> 4.2.0"
 # Remote theme support
 gem "jekyll-remote-theme"
 
-# Theme/plugin deps
+# Bonsai ecosystem plugins
 gem "jekyll-data"
+gem "jekyll-id"
+gem "jekyll-wikilinks"
 
 # Common plugins
 gem "jekyll-feed"
 gem "jekyll-seo-tag"
 gem "jekyll-sitemap"
 
-# Required for the `{% jekyll_graph %}` tag
+# Required for `{% jekyll_graph %}`
 gem "jekyll-graph"
