@@ -7,8 +7,9 @@ title: Musings - Jack Heseltine
   <img src="assets/img/heseltime-favicon-32x32.png"
        alt="heseltime logo"
        width="16"
-       height="16">
-  Back to heseltime
+       height="16"
+       target="_self">
+   back to heseltime
 </a>
 
 ## Welcome 
