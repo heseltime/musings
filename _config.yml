@@ -9,8 +9,6 @@ remote_theme: manunamz/jekyll-bonsai
 include:
   - "_pages"
 exclude:
-  - "Gemfile"
-  - "Gemfile.lock"
   - "README.md"
 
 collections:
@@ -33,34 +31,30 @@ collections:
       - tea.md
       - pot-bamboo.md
 
-# frontmatter
+# frontmatter defaults
 defaults:
-  -
-    scope:
+  - scope:
       type: "posts"
     values:
       layout: "post"
-      permalink: "/post/:id/"
-  -
-    scope:
+      permalink: "/post/:title/"
+  - scope:
       type: "books"
     values:
       layout: "book"
-      permalink: "/book/:id/"
-  -
-    scope:
+      permalink: "/book/:path/"
+  - scope:
       type: "entries"
     values:
       layout: "entry"
-      permalink: "/entry/:id/"
-  -
-    scope:
+      permalink: "/entry/:path/"
+  - scope:
       type: "states"
     values:
       layout: "state"
-      permalink: "/stat/:id/"
+      permalink: "/stat/:path/"
 
-# plugins (required for remote_theme on GitHub Pages)
+# required for remote_theme on GitHub Pages
 plugins:
   - jekyll-remote-theme
 
