@@ -6,3 +6,15 @@ gem "jekyll-bonsai"
 
 # gem "jekyll-bonsai", "~> 0.1.0"
 
+gem "jekyll", "~> 4.3"
+
+# Remote theme support
+gem "jekyll-remote-theme"
+
+# Standard Jekyll plugins
+gem "jekyll-feed"
+gem "jekyll-seo-tag"
+gem "jekyll-sitemap"
+
+# REQUIRED for Bonsai (this fixes your error)
+gem "jekyll-graph"

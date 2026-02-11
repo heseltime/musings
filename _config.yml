@@ -54,6 +54,10 @@ defaults:
 
 plugins:
   - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-graph
 
 ga_tracking: UA-190413040-3
 
