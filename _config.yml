@@ -1,9 +1,10 @@
 title: My Bonsai
-description: "A jeyll template for semantically inclined digital gardeners."
-url: "my-bonsai.com"
-#baseurl: ""
+description: "A jekyll template for semantically inclined digital gardeners."
+url: "https://my-bonsai.com"
+# baseurl: ""
 
-theme: jekyll-bonsai
+# GitHub Pages: use remote_theme instead of theme
+remote_theme: manunamz/jekyll-bonsai
 
 include:
   - "_pages"
@@ -46,20 +47,22 @@ defaults:
     values:
       layout: "book"
       permalink: "/book/:id/"
-  - 
+  -
     scope:
       type: "entries"
     values:
       layout: "entry"
       permalink: "/entry/:id/"
-  - 
+  -
     scope:
       type: "states"
     values:
       layout: "state"
       permalink: "/stat/:id/"
 
-# plugins
+# plugins (required for remote_theme on GitHub Pages)
+plugins:
+  - jekyll-remote-theme
 
 # Google Analytics (ip is anonymized by default)
 ga_tracking: UA-190413040-3
@@ -78,9 +81,9 @@ bonsai:
     graph:
       type: "tree"
   home:
-    notable: 
-      enabled: false 
-    recent: 
+    notable:
+      enabled: false
+    recent:
       enabled: true
       cap: 3
 
@@ -90,8 +93,7 @@ social:
   share:
     enabled: true
     type:
-      - 'email'
-      - 'facebook'
-      - 'linkedin'
-      - 'twitter'
-
+      - "email"
+      - "facebook"
+      - "linkedin"
+      - "twitter"
