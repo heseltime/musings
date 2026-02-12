@@ -3,6 +3,8 @@ layout: home
 title: Musings - Jack Heseltine
 ---
 
+$ \mu $ sings?
+
 ## Welcome 
 
 👋 Hey there, fellow gardener! 🧑‍🌾

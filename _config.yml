@@ -75,12 +75,17 @@ namespaces:
 bonsai:
   default_theme: "light"
   nav:
-    type: "graph"
+    type: "graph" # may be 'visited' (steps) or 'graph' (bonsai)
+    graph:
+      type: "tree" # may be 'tree' or 'net-web'
+    search: 
+      enabled: true
+      exclude: []
     visited:
       enabled: true
   home:
     notable:
-      enabled: false
+      enabled: true
     recent:
       enabled: true
       cap: 3
@@ -88,14 +93,18 @@ bonsai:
 social:
   connect:
     enabled: true
-    type:
-      - "email"
-      - "linkedin"
-
+    url:
+      # facebook:
+      # github: https://github.com/manunamz/jekyll-bonsai/
+      linkedin: https://www.linkedin.com/in/heselt-in-e/
+      # pinterest:
+      # rss:
+      # twitter:
   share:
     enabled: true
     type:
-      - "email"
-      - "facebook"
-      - "linkedin"
-      - "twitter"
+      - 'email'
+      # - 'facebook'
+      - 'linkedin'
+      # - 'pinterest'
+      # - 'twitter'
