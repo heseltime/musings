@@ -16,7 +16,7 @@ This site collects otherwise loose notes with some logical preconception of a se
 
 ### Contact
 
-Feel free to reach out (email preferred).
+Feel free to reach out (<a href="mailto:jack.heseltine+musings@gmail.com" alt="email link">email</a> preferred).
 
 ### Let's see how it grows
 
