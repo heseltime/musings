@@ -87,7 +87,11 @@ bonsai:
 
 social:
   connect:
-    enabled: false
+    enabled: true
+    type:
+      - "email"
+      - "linkedin"
+
   share:
     enabled: true
     type:
