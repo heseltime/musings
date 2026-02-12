@@ -1,5 +1,6 @@
 title: Musings
 description: "Semantics/trees/digital garden, mu sings?"
+tagline: "$\\mu$ sings?"
 author: Jack Heseltine
 url: "https://heseltime.github.io"
 baseurl: ""  # leave empty; Actions supplies /musings during build

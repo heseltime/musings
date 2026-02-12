@@ -3,7 +3,7 @@ layout: home
 title: Musings - Jack Heseltine
 ---
 
-$$ \mu $$ sings? 🎶
+{{ site.tagline | markdownify }} 🎶
 
 ## Welcome 
 
