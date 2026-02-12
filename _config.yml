@@ -75,7 +75,7 @@ namespaces:
 bonsai:
   default_theme: "light"
   nav:
-    type: "visited"      # <-- IMPORTANT: avoid graph/nav plugin
+    type: "graph"
     visited:
       enabled: true
   home:
