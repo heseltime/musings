@@ -3,7 +3,7 @@ layout: home
 title: Musings - Jack Heseltine
 ---
 
-{{ site.tagline | markdownify }} 🎶
+{{ site.tagline | markdownify }}
 
 ## Welcome 
 

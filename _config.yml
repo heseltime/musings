@@ -1,6 +1,6 @@
 title: Musings
 description: "Semantics/trees/digital garden, mu sings?"
-tagline: "$\\mu$ sings?"
+tagline: "μ sings? 🎶"
 author: Jack Heseltine
 url: "https://heseltime.github.io"
 baseurl: ""  # leave empty; Actions supplies /musings during build
@@ -196,24 +196,6 @@ namespaces:
     - "pages"
     - "posts"
     - "states"
-
-bonsai:
-  default_theme: "light"
-  nav:
-    type: "graph" # may be 'visited' (steps) or 'graph' (bonsai)
-    graph:
-      type: "tree" # may be 'tree' or 'net-web'
-    search: 
-      enabled: true
-      exclude: []
-    visited:
-      enabled: true
-  home:
-    notable:
-      enabled: true
-    recent:
-      enabled: true
-      cap: 3
 
 # 
 # includes
