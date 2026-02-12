@@ -5,6 +5,9 @@ author: Jack Heseltine
 url: "https://heseltime.github.io"
 baseurl: ""  # leave empty; Actions supplies /musings during build
 
+copyright:
+  message: Jack Heseltine ©️ Contents under CC-BY-NC
+
 remote_theme: manunamz/jekyll-bonsai
 
 include: 
