@@ -223,7 +223,7 @@ social:
     enabled: true
     url:
       # facebook:
-      # github: https://github.com/manunamz/jekyll-bonsai/
+      github: https://github.com/heseltime
       linkedin: https://www.linkedin.com/in/heselt-in-e/
       # pinterest:
       # rss:
@@ -233,7 +233,7 @@ social:
     type:
       - 'email'
       # - 'facebook'
-      # - 'linkedin'
+      - 'linkedin'
       # - 'pinterest'
       # - 'twitter'
 
