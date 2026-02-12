@@ -15,3 +15,7 @@ title: Musings - Jack Heseltine
 ### Let's see how it grows
 
 Keep an eye on this space over the next weeks and months!
+
+### Dedication
+
+To Moma, my grandmother. A gardener.
