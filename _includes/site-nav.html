@@ -1,10 +1,34 @@
 <nav id="site-nav" class="site-nav" role="navigation">
     <header>
-      <span>
+      
+      <!--<span>
         <a id="home-btn" class="btn btn--green" href="https://heseltime.github.io/" title="(Back to) heseltime">
           {{ site.data.emoji.home }}
         </a>
-      </span>
+      </span>-->
+      <span class="dropdown">
+        <button class="dropdown__btn">
+          <span title="Home">
+            {{ site.data.emoji.home }}
+          </span>
+        </button>
+      
+        <div class="dropdown__content">
+          <a class="btn btn--green drop-1" href="https://heseltime.github.io/musings/" title="homepage (musings)">
+            {{ site.data.emoji.home }}
+          </a>
+      
+          <a class="btn btn--green drop-2" href="https://heseltime.github.io/" title="(back to) heseltime">
+            <img
+              src="{{ 'assets/img/heseltime-favicon-32x32.png' | relative_url }}"
+              alt="heseltime"
+              width="16"
+              height="16"
+              style="vertical-align: middle;"
+            />
+          </a>
+        </div>
+      </span>      
       <span class="dropdown">
         <button class="dropdown__btn">
           <span title="Page Navigation">
