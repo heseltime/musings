@@ -16,3 +16,5 @@ _site/
 # macos
 .DS_Store
 
+# obsidian
+.obsidian/*
