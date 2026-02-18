@@ -1,10 +1,17 @@
 ---
 id: 319f58382d
-title: Objective
+title: Child Test
 updated: 1771448426000
 created: 1771448426000
 status: 🌱
 ---
+Block Wikilink: See sidebar for rendered output (first entry).
+
+block-wikilink::[[feat.doc.ext-synt]]
+
+Untyped Wikilink: [[digi-gard]]
+
+Typed Wikilink: the-main-metaphor::[[digi-gard]] (difference is in html, check with dev tools).
 
 Headers:
 # Header 1
