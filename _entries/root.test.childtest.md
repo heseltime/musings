@@ -11,7 +11,7 @@ block-wikilink::[[root]]
 
 Untyped Wikilink: [[root.test]]
 
-Typed Wikilink: the-main-metaphor::[[digi-gard]] (difference is in html, check with dev tools).
+Typed Wikilink: the-main-metaphor::[[root.test]] (difference is in html, check with dev tools).
 
 Headers:
 # Header 1
