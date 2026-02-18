@@ -182,7 +182,7 @@ graph:
       x_val: 0.9
       strength_y: 0.1
       y_val: 0.9
-  net_web:
+  web:
     # enabled: true
     # exclude:
     #   links: true
