@@ -7,9 +7,9 @@ status: 🌱
 ---
 Block Wikilink: See sidebar for rendered output (first entry).
 
-block-wikilink::[[feat.doc.ext-synt]]
+block-wikilink::[[root]]
 
-Untyped Wikilink: [[digi-gard]]
+Untyped Wikilink: [[root.test]]
 
 Typed Wikilink: the-main-metaphor::[[digi-gard]] (difference is in html, check with dev tools).
 
