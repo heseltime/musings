@@ -37,34 +37,7 @@ jobs:
           testing: true
           YAML
 
-      # 0)
-      - name: Ensure entries have front matter (convert empty/static files)
-        run: |
-          ruby <<'RUBY'
-          require "pathname"
-
-          Dir.glob("_entries/**/*.{md,markdown}").each do |path|
-            txt = File.read(path)
-            next if txt.start_with?("---\n") # already front matter
-
-            title = Pathname(path).basename.sub_ext("").to_s
-            File.write(path, "---\ntitle: #{title}\n---\n\n#{txt}")
-            puts "Added front matter to #{path}"
-          end
-          RUBY
-
-      # 1) Let jekyll-id write missing ids into your markdown sources
-      - name: Generate missing ids in source files
-        run: |
-          bundle exec jekyll build \
-            --config _config.yml,_config_ci.yml \
-            --destination _site_idgen \
-            --baseurl "${{ steps.pages.outputs.base_path }}"
-        env:
-          JEKYLL_ENV: production
-
-      # 2) Fill missing created/updated timestamps (epoch ms) in front matter
-      - name: Add missing timestamps to entries
+      - name: Normalize entry front matter (status + timestamps)
         run: |
           ruby <<'RUBY'
           require "yaml"
@@ -74,59 +47,54 @@ jobs:
             (t.to_f * 1000).to_i
           end
 
-          # Edit these if you also want books/posts/etc.
-          globs = [
-            "_entries/**/*.md",
-            "_entries/**/*.markdown"
-          ]
-
-          changed = 0
-
-          globs.flat_map { |g| Dir.glob(g) }.each do |path|
+          Dir.glob("_entries/**/*.{md,markdown}").each do |path|
             text = File.read(path)
 
-            # Only handle files with YAML front matter
-            next unless text.start_with?("---\n")
-            parts = text.split(/^---\s*$\n/, 3) # ["", frontmatter, body]
+            # If file has no front matter at all, create minimal one
+            unless text.start_with?("---\n")
+              title = File.basename(path, ".*")
+              text = "---\ntitle: #{title}\n---\n\n" + text
+            end
+
+            parts = text.split(/^---\s*$\n/, 3)
             next unless parts.length == 3
 
             fm_raw = parts[1]
             body   = parts[2]
 
             fm = YAML.safe_load(fm_raw, permitted_classes: [Date, Time], aliases: true) || {}
+
             now = epoch_ms
+            changed = false
 
-            wrote = false
+            # default status
+            if !fm.key?("status") || fm["status"].to_s.strip == ""
+              fm["status"] = "🌱"
+              changed = true
+            end
 
-            # If either missing, set it. If created exists but updated missing, set updated.
-            if !fm.key?("created") || fm["created"].nil? || fm["created"].to_s.strip == ""
+            # created timestamp
+            if !fm.key?("created") || fm["created"].to_s.strip == ""
               fm["created"] = now
-              wrote = true
+              changed = true
             end
 
-            if !fm.key?("updated") || fm["updated"].nil? || fm["updated"].to_s.strip == ""
+            # updated timestamp
+            if !fm.key?("updated") || fm["updated"].to_s.strip == ""
               fm["updated"] = now
-              wrote = true
+              changed = true
             end
 
-            # Optional: if you also want a human-readable `date:` for Jekyll sorting:
-            # if !fm.key?("date") || fm["date"].to_s.strip == ""
-            #   fm["date"] = Time.now.utc.iso8601
-            #   wrote = true
-            # end
+            next unless changed
 
-            next unless wrote
-
-            # keep front matter stable-ish (YAML.dump adds ---; we add it ourselves)
             fm_out = fm.to_yaml.sub(/\A---\s*\n/, "")
             new_text = +"---\n#{fm_out}---\n#{body}"
 
             File.write(path, new_text)
-            changed += 1
+            puts "Updated #{path}"
           end
-
-          puts "Timestamped #{changed} file(s)."
           RUBY
+
 
       - name: Commit generated ids/timestamps (if any)
         run: |
@@ -141,7 +109,6 @@ jobs:
             echo "No changes to commit."
           fi
 
-      # 3) Build the actual site artifact to deploy
       - name: Build site for Pages
         run: |
           bundle exec jekyll build \

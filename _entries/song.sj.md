@@ -4,4 +4,4 @@ title: Societas Jesu
 created: 1771522007125
 updated: 1771522007125
 ---
-**Note**: external considerations of the society - for the internal, see [Volcel](/volcel) notes.
+**Note**: external considerations of the society - for the internal, see [volcel](/volcel) notes.
