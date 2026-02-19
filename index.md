@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Musings - Jack Heseltine
+title: Musings
 ---
 
 {{ site.tagline | markdownify }}

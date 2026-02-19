@@ -8,7 +8,11 @@ status: 🌱
 
 🪴  Welcome to my digital garden!
 
-## Idea
+## Core Notes Idea
+
+## Other Structuring
+
+## Semantics?
 
 
 
