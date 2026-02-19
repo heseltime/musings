@@ -173,14 +173,14 @@ graph:
     - "pages"
     - "posts"
     - "states"
+  graph:
   tree:
-    # enabled: true
-    dag_lvl_dist: 100
+    dag_lvl_dist: 180    # was 100; try 150–300 depending on node count
     force:
-      charge: -100
-      strength_x: 0.3
+      charge: -600       # was -100; more negative = more spacing
+      strength_x: 0.15   # less pull toward center = less pile-up
       x_val: 0.9
-      strength_y: 0.1
+      strength_y: 0.15
       y_val: 0.9
   web:
     # enabled: true
