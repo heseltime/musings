@@ -1,5 +1,6 @@
 ---
 title: Jesuit Information Service
+id: 0b697bdc1e
 date: 2026-02-19
 status: 🌱
 ---

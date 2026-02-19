@@ -267,6 +267,7 @@ bonsai:
   states:
     root_path: "_states/tags.md"
   entries:
+    root_path: "_entries/root.md"
     toggles:  # may be 'open' or 'closed'
       breadcrumb: "open"
       attr_box: "open"
