@@ -24,4 +24,4 @@ Keep an eye on this space over the next weeks and months!
 
 ### Dedication
 
-To Moma, my grandmother. A gardener 🧑‍🌾
+To [[song.Moma|Moma]], my grandmother. A gardener 🧑‍🌾
