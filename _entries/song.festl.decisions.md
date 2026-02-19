@@ -2,9 +2,10 @@
 title: Festl Producing
 id: 0b697bdc1f
 date: 2026-02-19
-status: 🌱
+status: "\U0001F331"
+created: 1771520572433
+updated: 1771520572433
 ---
-
 It seems to me that the essential task of **producing** a Fest (in this case) revolves and *resolves* around making decisions, i.e. reducing the set of all possible options to a few, dictated by (mostly economic, sponsoring) circumstance and manpower (students willing to put some time to making this happen). Currently the topics are:
 
 ```
