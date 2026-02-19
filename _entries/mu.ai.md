@@ -1,6 +1,6 @@
 ---
 id: 3245fc1299
-title: mu.ai
+title: AI
 created: 1771522007122
 updated: 1771522007122
 ---
