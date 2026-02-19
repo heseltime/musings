@@ -7,11 +7,11 @@ status: 🌱
 ---
 Block Wikilink: See sidebar for rendered output (first entry).
 
-block-wikilink::[[root]]
+block-wikilink::[[mu]]
 
-Untyped Wikilink: [[root.test]]
+Untyped Wikilink: [[mu.child-test]]
 
-Typed Wikilink: the-main-metaphor::[[root.test]] (difference is in html, check with dev tools).
+Typed Wikilink: the-main-metaphor::[[mu.child-test]] (difference is in html, check with dev tools).
 
 Headers:
 # Header 1
