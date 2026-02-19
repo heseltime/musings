@@ -37,6 +37,22 @@ jobs:
           testing: true
           YAML
 
+      # 0)
+      - name: Ensure entries have front matter (convert empty/static files)
+        run: |
+          ruby <<'RUBY'
+          require "pathname"
+
+          Dir.glob("_entries/**/*.{md,markdown}").each do |path|
+            txt = File.read(path)
+            next if txt.start_with?("---\n") # already front matter
+
+            title = Pathname(path).basename.sub_ext("").to_s
+            File.write(path, "---\ntitle: #{title}\n---\n\n#{txt}")
+            puts "Added front matter to #{path}"
+          end
+          RUBY
+
       # 1) Let jekyll-id write missing ids into your markdown sources
       - name: Generate missing ids in source files
         run: |
