@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # This detects whether Pages is served at / or /<repo>
+      # Detect whether Pages is served at / or /<repo>
       - id: pages
         uses: actions/configure-pages@v5
 
@@ -29,8 +29,19 @@ jobs:
           ruby-version: "3.2"
           bundler-cache: true
 
-      - name: Build with correct baseurl
-        run: bundle exec jekyll build --destination _site --baseurl "${{ steps.pages.outputs.base_path }}"
+      # Prevent jekyll-id from prompting (CI has no stdin)
+      - name: Create CI config (disable prompts)
+        run: |
+          cat > _config_ci.yml <<'YAML'
+          testing: true
+          YAML
+
+      - name: Build (Bonsai) with correct baseurl
+        run: |
+          bundle exec jekyll build \
+            --config _config.yml,_config_ci.yml \
+            --destination _site \
+            --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
 
