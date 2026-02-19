@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # <- needed to push generated ids back to repo
+  contents: write
   pages: write
   id-token: write
 
@@ -17,7 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # avoid infinite loop when the bot pushes the "Add ids" commit
     if: github.actor != 'github-actions[bot]'
     steps:
       - uses: actions/checkout@v4
@@ -38,7 +37,7 @@ jobs:
           testing: true
           YAML
 
-      # Run a build to let jekyll-id write ids into your markdown sources
+      # 1) Let jekyll-id write missing ids into your markdown sources
       - name: Generate missing ids in source files
         run: |
           bundle exec jekyll build \
@@ -48,20 +47,85 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      - name: Commit generated ids (if any)
+      # 2) Fill missing created/updated timestamps (epoch ms) in front matter
+      - name: Add missing timestamps to entries
+        run: |
+          ruby <<'RUBY'
+          require "yaml"
+          require "time"
+
+          def epoch_ms(t = Time.now)
+            (t.to_f * 1000).to_i
+          end
+
+          # Edit these if you also want books/posts/etc.
+          globs = [
+            "_entries/**/*.md",
+            "_entries/**/*.markdown"
+          ]
+
+          changed = 0
+
+          globs.flat_map { |g| Dir.glob(g) }.each do |path|
+            text = File.read(path)
+
+            # Only handle files with YAML front matter
+            next unless text.start_with?("---\n")
+            parts = text.split(/^---\s*$\n/, 3) # ["", frontmatter, body]
+            next unless parts.length == 3
+
+            fm_raw = parts[1]
+            body   = parts[2]
+
+            fm = YAML.safe_load(fm_raw, permitted_classes: [Date, Time], aliases: true) || {}
+            now = epoch_ms
+
+            wrote = false
+
+            # If either missing, set it. If created exists but updated missing, set updated.
+            if !fm.key?("created") || fm["created"].nil? || fm["created"].to_s.strip == ""
+              fm["created"] = now
+              wrote = true
+            end
+
+            if !fm.key?("updated") || fm["updated"].nil? || fm["updated"].to_s.strip == ""
+              fm["updated"] = now
+              wrote = true
+            end
+
+            # Optional: if you also want a human-readable `date:` for Jekyll sorting:
+            # if !fm.key?("date") || fm["date"].to_s.strip == ""
+            #   fm["date"] = Time.now.utc.iso8601
+            #   wrote = true
+            # end
+
+            next unless wrote
+
+            # keep front matter stable-ish (YAML.dump adds ---; we add it ourselves)
+            fm_out = fm.to_yaml.sub(/\A---\s*\n/, "")
+            new_text = +"---\n#{fm_out}---\n#{body}"
+
+            File.write(path, new_text)
+            changed += 1
+          end
+
+          puts "Timestamped #{changed} file(s)."
+          RUBY
+
+      - name: Commit generated ids/timestamps (if any)
         run: |
           rm -rf _site_idgen
           if git status --porcelain | grep -q .; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "chore: add missing frontmatter ids [skip ci]"
+            git commit -m "chore: add missing ids/timestamps [skip ci]"
             git push
           else
-            echo "No id changes to commit."
+            echo "No changes to commit."
           fi
 
-      # Build the actual site artifact to deploy
+      # 3) Build the actual site artifact to deploy
       - name: Build site for Pages
         run: |
           bundle exec jekyll build \
